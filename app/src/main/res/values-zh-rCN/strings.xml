@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">自动抢红包</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">设置</string>
+    <string name="title_notifications">关于</string>
+    <string name="text_open_delay_time">抢红包延迟时间</string>
+    <string name="text_loading_time">等待页面加载时间</string>
+    <string name="text_button_config">开启/关闭</string>
+    <string name="text_about">Github：\nhttps://github.com/leitingtod/RedPacket\n\n感谢：\nhttps://github.com/qq2068254/GetRedPacket</string>
+    <string name="default_open_delay_time">800</string>
+    <string name="default_loading_time">300</string>
+    <string name="delay_time_unit">毫秒</string>
+    <string name="service_opened">服务已开启</string>
+    <string name="service_closed">服务已关闭</string>
+    <string name="service_feedback_interrupt">服务反馈中断</string>
+    <string name="open_service">，点击可开启服务</string>
+    <string name="close_service">，点击可关闭服务</string>
+</resources>

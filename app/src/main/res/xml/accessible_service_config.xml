@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--用了无障碍服务，想通过getRootInActiveWindow()来获取View节点，然后实现一些功能啊，
+android:accessibilityFlags="flagDefault
+但是发现getRootInActiveWindow()，经常性为null，
+获取不到子节点信息，而且获取不的全，只有一部分。
+加了flagRetrieveInteractiveWindows 就可以了-->
+
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault|flagRetrieveInteractiveWindows"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/app_name"
+    android:notificationTimeout="200"
+    android:packageNames="com.tencent.mm" />

@@ -3,4 +3,16 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="text_open_delay_time">OpenDelayTime</string>
+    <string name="text_loading_time">LoadingTime</string>
+    <string name="text_button_config">Enable/Disable</string>
+    <string name="text_about">Github:\nhttps://github.com/leitingtod/RedPacket\n\nThanks:\nhttps://github.com/qq2068254/GetRedPacket</string>
+    <string name="default_loading_time">300</string>
+    <string name="default_open_delay_time">800</string>
+    <string name="delay_time_unit">ms</string>
+    <string name="service_opened">service opened</string>
+    <string name="service_closed">service closed</string>
+    <string name="service_feedback_interrupt">service_feedback_interrupt</string>
+    <string name="open_service">,click to close</string>
+    <string name="close_service">,click to open</string>
 </resources>
