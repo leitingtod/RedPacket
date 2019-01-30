@@ -15,4 +15,5 @@
     <string name="service_feedback_interrupt">service_feedback_interrupt</string>
     <string name="open_service">,click to close</string>
     <string name="close_service">,click to open</string>
+    <string name="redpacket_over">game over</string>
 </resources>

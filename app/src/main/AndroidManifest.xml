@@ -3,6 +3,8 @@
     package="com.example.redpacket">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -28,7 +30,8 @@
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
-            <meta-data android:name="android.accessibilityservice"
+            <meta-data
+                android:name="android.accessibilityservice"
                 android:resource="@xml/accessible_service_config" />
         </service>
     </application>

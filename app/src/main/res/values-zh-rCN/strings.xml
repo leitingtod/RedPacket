@@ -15,4 +15,5 @@
     <string name="service_feedback_interrupt">服务反馈中断</string>
     <string name="open_service">，点击可开启服务</string>
     <string name="close_service">，点击可关闭服务</string>
+    <string name="redpacket_over">已领取所有的红包</string>
 </resources>
