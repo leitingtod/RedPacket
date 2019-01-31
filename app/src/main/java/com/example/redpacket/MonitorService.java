@@ -7,12 +7,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.view.accessibility.AccessibilityEvent;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -51,9 +51,12 @@ public class MonitorService extends AccessibilityService {
     @Override
     protected void onServiceConnected() {
         String s = getResources().getString(R.string.app_name) +
-                getResources().getString(R.string.service_opened);
+                getResources().getString(R.string.seperator) +
+                getResources().getString(R.string.service_opened) +
+                getResources().getString(R.string.seperator) +
+                getResources().getString(R.string.close_service);
 
-        notify(s + getResources().getString(R.string.close_service));
+        notify(s);
         setTimerTask();
         showConfig("onConnected");
 
@@ -63,9 +66,12 @@ public class MonitorService extends AccessibilityService {
     @Override
     public boolean onUnbind(Intent intent) {
         String s = getResources().getString(R.string.app_name) +
-                getResources().getString(R.string.service_closed);
+                getResources().getString(R.string.seperator) +
+                getResources().getString(R.string.service_closed) +
+                getResources().getString(R.string.seperator) +
+                getResources().getString(R.string.open_service);
 
-        notify(s + getResources().getString(R.string.open_service));
+        notify(s);
         timer.cancel();
         showConfig("onUnbind");
 
@@ -75,7 +81,9 @@ public class MonitorService extends AccessibilityService {
     @Override
     public void onInterrupt() {
         String s = getResources().getString(R.string.app_name) +
+                getResources().getString(R.string.seperator) +
                 getResources().getString(R.string.service_feedback_interrupt);
+
         notify(s);
     }
 
@@ -109,13 +117,21 @@ public class MonitorService extends AccessibilityService {
         try {
             Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
             PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
+
+            RemoteViews views = new RemoteViews(getPackageName(), R.layout.notification);
+            views.setTextViewText(R.id.textView, message);
+            views.setTextColor(R.id.textView, Color.BLACK);
+            views.setImageViewResource(R.id.imageView, R.mipmap.ic_launcher_round);
+            views.setOnClickPendingIntent(R.id.textView, pi);
+
             Notification notification = new Notification.Builder(this, notificationChannel.getId())
                     .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                    .setContentText(message)
-                    .setContentIntent(pi)
+                    .setCustomContentView(new RemoteViews(getPackageName(), R.layout.notification))
+                    .setCustomBigContentView(views)
+                    .setCustomHeadsUpContentView(views)
+                    .setFullScreenIntent(pi, true)
                     .build();
-            notification.flags |= Notification.FLAG_NO_CLEAR;
+
             notificationManager.notify(1, notification);
         } catch (Exception e) {
             e.printStackTrace();
@@ -163,7 +179,7 @@ public class MonitorService extends AccessibilityService {
                 if (lastEventCount == eventCount) {
                     eventCount = 0;
 
-                    if(WeChat.eventStart) {
+                    if (WeChat.eventStart) {
                         WeChat.eventStart = false;
                         WeChat.eventStop = true;
                         if (WeChat.scrollStart) {

@@ -16,4 +16,5 @@
     <string name="open_service">,click to close</string>
     <string name="close_service">,click to open</string>
     <string name="redpacket_over">game over</string>
+    <string name="seperator">"  ·  "</string>
 </resources>

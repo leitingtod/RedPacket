@@ -13,7 +13,8 @@
     <string name="service_opened">服务已开启</string>
     <string name="service_closed">服务已关闭</string>
     <string name="service_feedback_interrupt">服务反馈中断</string>
-    <string name="open_service">，点击可开启服务</string>
-    <string name="close_service">，点击可关闭服务</string>
+    <string name="open_service">点击开启</string>
+    <string name="close_service">点击关闭</string>
     <string name="redpacket_over">已领取所有的红包</string>
+    <string name="seperator">"  ·  "</string>
 </resources>
